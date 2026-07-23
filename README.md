@@ -2,11 +2,11 @@
 
 Proyecto dedicado a entrenamiento de modelos de Machine Learning para predicción de eventos meteorológicos extremos. 
 
-# Pasos para la recreación de los conjuntos de datos (opcional)
+## Pasos para la recreación de los conjuntos de datos (opcional)
 
 ### **Estos pasos son solo necesarios si se desea reconstruir los datos.**
 
-### 0. Cambiar configuración (opcional)
+### 0. Cambiar configuración (opcional).
 
 Si se quiere modificar la configuración de datos recogidos, para cambiar los periodos de tiempo basta con cambiar:
 - `START_DATE` y `END_DATE` en el archivo [`dataset_building/aemet/config.py`](dataset_building/aemet/config.py).
@@ -18,23 +18,41 @@ Si además se quiere cambiar el comportamiento del procesamiento en el archivo [
 - `PROVINCES_CLM` para definir las provincias que se usan para el conjunto de datos de CLM.
 - `COLS_TO_DROP` para definir las columnas que se eliminan en el procesamiento.
 
-### 1. Obtener una llave de API de [AEMET OpenData](https://opendata.aemet.es/centrodedescargas/inicio)
+### 1. Obtener una llave de API de [AEMET OpenData](https://opendata.aemet.es/centrodedescargas/inicio).
 
 Primero, hay que solicitar una llave de API de [AEMET OpenData](https://opendata.aemet.es/centrodedescargas/inicio), introduciendo el correo electónico y siguiendo los pasos.
 
-Con esta llave de API, se debe crear un archivo `.env` que contenga: AEMET_API_KEY=[TU LLAVE]
+Con esta llave de API, se debe crear un archivo `.env` que contenga: AEMET_API_KEY=[LLAVE]
 
-### 2. Preparar [`cdsapi`](https://cds.climate.copernicus.eu/how-to-api)
+### 2. Preparar [`cdsapi`](https://cds.climate.copernicus.eu/how-to-api).
 
 En la *Climate Data Store* ya existe una [guía](https://cds.climate.copernicus.eu/how-to-api) de cómo hacer el *setup*. 
 
 Adicionalmente, yo tuve que aceptar la licencia del conjunto de datos [ERA5 daily aggregated data on single levels from 1940 to present](https://doi.org/10.6084/m9.figshare.21789074).
 
-### 3. Ejecutar [`execute.py`](execute.py)
+### 3. Ejecutar [`execute.py`](execute.py) para lanzar todos los scripts de recolección y procesamiento de datos.
 
-# Pasos para la ejecución de los experimentos
+## Pasos para el entrenamiento de los modelos
 
-# Datos
+### 0. Cambiar configuración (opcional).
+
+Si así se desea, se puede modificar el diccionario `CONFIG` de [`analysis_modeling/config.py`](analysis_modeling/config.py) para modificar:
+
+- Rutas origen de los datos
+- Rutas destino de los conjuntos de entrenamiento
+- Rutas destino de los registros y modelos por el entrenamiento
+- Columnas y periodos de tiempo de las agregaciones temporales 
+
+### 1. Ejecutar la libreta [`analysis_modeling/4_feature_engineering.ipynb`](analysis_modeling/4_feature_engineering.ipynb) para crear los conjuntos de entrenamiento.
+
+### 2. Ejecutar la libreta [`analysis_modeling/5_modeling_evaluation.ipynb`](analysis_modeling/5_modeling_evaluation.ipynb) para entrenar los modelos
+
+### 3. Opcionalmente, ejecutar la libreta [`analysis_modeling/6_evaluation.ipynb`](analysis_modeling/6_evaluation.ipynb) para mostrar gráficos del rendimiento de los modelos en el *split* de prueba.
+
+
+
+
+# Datos utilizados
 
 ## Datos de AEMET
 

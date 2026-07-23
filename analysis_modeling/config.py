@@ -44,7 +44,8 @@ CONFIG = {
     # ===========================================
     #  Modelos e hiperparámetros
     # ===========================================
-    "models": ["Baseline", "NaiveBayes", "LogReg", "DecisionTree", "LGBM"],
+    # Los modelos posibles son ["Baseline", "NaiveBayes", "LogReg", "DecisionTree", "LGBM"]
+    "models": ["Baseline", "NaiveBayes", "LogReg", "DecisionTree", "LGBM"], 
     "search_iters": {"NaiveBayes": 10, "LogReg": 10, "DecisionTree": 10, "LGBM": 10},
     "primary_metric": "average_precision",
     "n_jobs": 1,
@@ -61,28 +62,39 @@ CONFIG = {
     # ===========================================
     "ex_lags": [1],
 
+    # Define las columnas normales que pasan al conjunto de datos de entrenamiento
     "cont_cols": ["tmax", "tmin", "prec", "racha", "tmed", "hrMedia", "mslp_max", "mslp_min", "mslp_media", "velmedia", "altitud", "latitud", "longitud"],
     "cat_cols": ["koppen_main", "koppen_class"],
 
+    # Define las columnas sobre las que se aplican retardos y qué retardos se aplican
     "lag_cols": ["tmax", "tmin", "prec", "racha", "mslp_min", "mslp_max"],
     "lag_windows": [1, 3],
 
+    # Define las columnas sobre las que se aplican operaciones de ventana rodante, qué operaciones y con qué ventanas
     "roll_cols": ["tmax", "tmin", "prec", "racha"],
     "roll_windows": [3, 7, 14],
     "roll_ops": ["mean", "max"],
 
+    # Define las columnas sobre las que se aplica EWMA y sobre qué spans
     "ewma_cols": ["tmax", "tmin", "prec", "racha"],
     "ewma_spans": [3, 7, 14],
 
+    # Define las columnas sobre las que se aplica diferencia y con qué spans
     "diff_cols": ["mslp_max", "mslp_min"] + ["tmax", "tmin", "prec", "racha"],
     "diff_spans": [1, 3],
 
+    # NO CAMBIAR: SON NECESARIAS PARA EL PREPROCESAMIENTO
     "aux_cols": ["indicativo", "fecha"],
 
     # ===========================================
     #  Preprocesamiento
     # ===========================================
+    # Define las columnas sobre las que se aplica el escalado estándar con ventana
     "core_scale_cols": ["tmax", "tmin", "prec", "racha", "tmed", "hrMedia", "mslp_max", "mslp_min", "mslp_media", "velmedia"],
-    "core_half_window": 2,
+
+    # Define los días adelante y atrás que se consultan para calcular media y desviación estándar en escalado estándar con ventana
+    "core_half_window": 2, 
+
+    # Define las columnas que permanecen estáticas en los registros pertenecientes a la misma estación
     "static_scale_cols": ["altitud", "latitud", "longitud"]
 }
