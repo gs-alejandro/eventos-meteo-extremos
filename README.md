@@ -36,11 +36,11 @@ Adicionalmente, yo tuve que aceptar la licencia del conjunto de datos [ERA5 dail
 
 ### 0. Cambiar configuración (opcional).
 
-Si así se desea, se puede modificar el diccionario `CONFIG` de [`analysis_modeling/config.py`](analysis_modeling/config.py) para modificar:
+Se puede modificar el diccionario `CONFIG` de [`analysis_modeling/config.py`](analysis_modeling/config.py) para modificar:
 
 - Rutas origen de los datos
 - Rutas destino de los conjuntos de entrenamiento
-- Rutas destino de los registros y modelos por el entrenamiento
+- Rutas destino de los registros y modelos resultantes del entrenamiento
 - Columnas y periodos de tiempo de las agregaciones temporales 
 
 ### 1. Ejecutar la libreta [`analysis_modeling/4_feature_engineering.ipynb`](analysis_modeling/4_feature_engineering.ipynb) para crear los conjuntos de entrenamiento.
