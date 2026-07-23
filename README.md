@@ -2,6 +2,8 @@
 
 Proyecto dedicado a entrenamiento de modelos de Machine Learning para predicción de eventos meteorológicos extremos. 
 
+Dependencias instalables mediante el comando `pip install -r requirements.txt`
+
 ## Pasos para la recreación de los conjuntos de datos (opcional)
 
 ### **Estos pasos son solo necesarios si se desea reconstruir los datos.**
