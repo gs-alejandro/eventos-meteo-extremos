@@ -30,7 +30,7 @@ Con esta llave de API, se debe crear un archivo `.env` que contenga: AEMET_API_K
 
 En la *Climate Data Store* ya existe una [guía](https://cds.climate.copernicus.eu/how-to-api) de cómo hacer el *setup*. 
 
-Adicionalmente, yo tuve que aceptar la licencia del conjunto de datos [ERA5 daily aggregated data on single levels from 1940 to present](https://doi.org/10.6084/m9.figshare.21789074).
+Adicionalmente, yo tuve que aceptar la licencia del conjunto de datos [ERA5 daily aggregated data on single levels from 1940 to present](https://doi.org/10.24381/cds.4991cf48).
 
 ### 3. Ejecutar [`execute.py`](execute.py) para lanzar todos los scripts de recolección y procesamiento de datos.
 
